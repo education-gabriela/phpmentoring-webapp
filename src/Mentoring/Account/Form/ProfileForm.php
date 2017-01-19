@@ -72,6 +72,9 @@ class ProfileForm extends AbstractType
                 'required' => false,
                 'constraints' => new TimezoneConstraint(),
             ])
+            ->add('languages', TextType::class, [
+                'required' => false
+            ])
             ->add('isMentor', CheckboxType::class, [
                 'required' => false,
             ])

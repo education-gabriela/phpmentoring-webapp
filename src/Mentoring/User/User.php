@@ -14,6 +14,7 @@ class User
     protected $isEnabled = true;
     protected $githubUid = null;
     protected $githubName = '';
+    protected $languages = '';
     protected $isMentor = false;
     protected $isMentee = false;
     protected $timezone = null;
@@ -186,5 +187,15 @@ class User
     public function setTimezone($timezone)
     {
         $this->timezone = $timezone;
+    }
+
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    public function setLanguages($languages)
+    {
+        $this->languages = $languages;
     }
 }

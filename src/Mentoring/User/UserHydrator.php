@@ -40,6 +40,7 @@ class UserHydrator
             'mentorTags' => $object->getMentorTags(),
             'imageUrl' => $object->getProfileImage(),
             'timezone' => $object->getTimezone(),
+            'languages' => $object->getLanguages(),
             'sendNotifications' => $object->hasSendNotifications()
         ];
 
@@ -88,6 +89,10 @@ class UserHydrator
 
         if (isset($data['timezone'])) {
             $object->setTimezone($data['timezone']);
+        }
+
+        if (isset($data['languages'])) {
+            $object->setLanguages($data['languages']);
         }
 
         $object->setIsMentee($data['isMentee']);

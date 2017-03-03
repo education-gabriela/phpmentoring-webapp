@@ -108,9 +108,9 @@ class UserHydrator
         if (isset($data['timeCreated'])) {
             if (!$data['timeCreated'] instanceof \DateTime) {
                 $createdTime = new \DateTime($data['timeCreated']);
-                $object->setTimeCreated($createdTime);
+                $object->setTimeCreated($createdTime->format('Y-m-d H:i:s'));
             } else {
-                $object->setTimeCreated($data['timeCreated']);
+                $object->setTimeCreated($data['timeCreated']->format('Y-m-d H:i:s'));
             }
         }
 

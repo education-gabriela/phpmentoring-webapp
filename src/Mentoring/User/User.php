@@ -11,17 +11,17 @@ class User
     protected $roles = [];
     protected $name = '';
     protected $timeCreated;
-    protected $isEnabled = true;
+    protected $isEnabled = 1;
     protected $githubUid = null;
     protected $githubName = '';
-    protected $isMentor = false;
-    protected $isMentee = false;
+    protected $isMentor = 0;
+    protected $isMentee = 0;
     protected $timezone = null;
     protected $profile = '';
     protected $mentorTags = [];
     protected $apprenticeTags = [];
     protected $profileImage = null;
-    protected $sendNotifications = true;
+    protected $sendNotifications = 1;
 
     public function addApprenticeTag(Term $term)
     {
@@ -85,12 +85,12 @@ class User
 
     public function isMentee()
     {
-        return (bool)$this->isMentee;
+        return $this->isMentee;
     }
 
     public function isMentor()
     {
-        return (bool)$this->isMentor;
+        return $this->isMentor;
     }
 
     public function setApprenticeTags(array $terms)
@@ -148,7 +148,7 @@ class User
         $this->roles = $roles;
     }
 
-    public function setTimeCreated(\DateTime $timeCreated)
+    public function setTimeCreated($timeCreated)
     {
         $this->timeCreated = $timeCreated;
     }
@@ -170,7 +170,7 @@ class User
 
     public function setSendNotifications($sendNotifications)
     {
-        $this->sendNotifications = (bool) $sendNotifications;
+        $this->sendNotifications = $sendNotifications;
     }
 
     public function hasSendNotifications()

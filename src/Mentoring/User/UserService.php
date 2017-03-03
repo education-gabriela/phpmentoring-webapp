@@ -57,7 +57,6 @@ class UserService
         unset($data['mentorTags']);
         unset($data['apprenticeTags']);
         unset($data['imageUrl']);
-
         if (empty($data['id'])) {
             $this->dbal->insert('users', $data);
             $user->setId($this->dbal->lastInsertId());
@@ -111,10 +110,10 @@ class UserService
     {
         $data['timeCreated'] = new \DateTime();
         $data['timezone'] = null;
-        $data['isEnabled'] = true;
-        $data['isMentee'] = false;
-        $data['isMentor'] = false;
-        $data['sendNotifications'] = true;
+        $data['isEnabled'] = 1;
+        $data['isMentee'] = 0;
+        $data['isMentor'] = 0;
+        $data['sendNotifications'] = 1;
 
         $user = $this->hydrator->hydrate($data, new User());
 
